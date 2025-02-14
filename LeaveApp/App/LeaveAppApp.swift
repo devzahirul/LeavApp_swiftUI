@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct LeaveAppApp: App {
+    @StateObject private var localizationManager = LocalizationManager.shared
+       
+    init() {
+        // Load any previously saved language
+        
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(localizationManager)
+                // Key point: pass the locale to SwiftUI environment
+                .environment(\.locale, localizationManager.locale)
+
         }
     }
 }

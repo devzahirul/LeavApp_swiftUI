@@ -13,9 +13,15 @@ struct LeaveApplicationView: View {
     @State private var isImagePickerPresented    = false
     @State private var tempPickedImageURL: URL?  = nil
     
+    @EnvironmentObject var localizationManager: LocalizationManager
+    
     var body: some View {
         NavigationView {
             Form {
+                //--- Language section----
+                LanguagePickerSection()
+                
+                
                 // --- Personal Information ---
                 Section(header: Text(.personalInformation)) {
                     TextField(.namePlaceholder, text: $viewModel.application.name)
@@ -98,7 +104,7 @@ struct LeaveApplicationView: View {
                 viewModel.attachedFileURLs.append(newValue)
                 tempPickedImageURL = nil
             }
-        }
+        }.id(localizationManager.locale)
     }
 }
 

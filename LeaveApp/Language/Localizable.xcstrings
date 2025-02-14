@@ -64,6 +64,9 @@
     "Holidays" : {
 
     },
+    "Language" : {
+
+    },
     "LeaveApplicationTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -140,6 +143,9 @@
       }
     },
     "Refresh" : {
+
+    },
+    "Select Language" : {
 
     },
     "StartDate" : {

@@ -36,6 +36,8 @@
 		0BF8C52F2D5EE33D00E80653 /* Text+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8C52E2D5EE33D00E80653 /* Text+.swift */; };
 		0BF8C5322D5EE38A00E80653 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8C5312D5EE38A00E80653 /* TextField+.swift */; };
 		0BF8C5342D5EE3D900E80653 /* Button+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8C5332D5EE3D900E80653 /* Button+.swift */; };
+		0BF8C5362D5EEDE600E80653 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8C5352D5EEDE600E80653 /* LocalizationManager.swift */; };
+		0BF8C5382D5EEEC800E80653 /* LanguagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8C5372D5EEEC800E80653 /* LanguagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		0BF8C52E2D5EE33D00E80653 /* Text+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+.swift"; sourceTree = "<group>"; };
 		0BF8C5312D5EE38A00E80653 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
 		0BF8C5332D5EE3D900E80653 /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
+		0BF8C5352D5EEDE600E80653 /* LocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
+		0BF8C5372D5EEEC800E80653 /* LanguagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				0BF8C5232D5ED60B00E80653 /* HolidayList */,
 				0B4AE8372D5E19930054CB08 /* Chart */,
 				0BC4B1C12D5E12E700778A09 /* Application */,
+				0BF8C5372D5EEEC800E80653 /* LanguagePicker.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			children = (
 				0BF8C5272D5EDFE200E80653 /* Localizable.xcstrings */,
 				0BF8C52A2D5EE2F000E80653 /* Ln10.swift */,
+				0BF8C5352D5EEDE600E80653 /* LocalizationManager.swift */,
 			);
 			path = Language;
 			sourceTree = "<group>";
@@ -323,6 +329,8 @@
 				0B4AE8392D5E19A30054CB08 /* UpcomingLeaveCircleChartView.swift in Sources */,
 				0BC4B1C82D5E13D900778A09 /* BackendService.swift in Sources */,
 				0BF8C5342D5EE3D900E80653 /* Button+.swift in Sources */,
+				0BF8C5362D5EEDE600E80653 /* LocalizationManager.swift in Sources */,
+				0BF8C5382D5EEEC800E80653 /* LanguagePicker.swift in Sources */,
 				0BC4B1CB2D5E141F00778A09 /* FirebaseBackendService.swift in Sources */,
 				0BC4B1C02D5E12AD00778A09 /* LeaveApplication.swift in Sources */,
 				0B4AE8362D5E19240054CB08 /* CircleChartView.swift in Sources */,
