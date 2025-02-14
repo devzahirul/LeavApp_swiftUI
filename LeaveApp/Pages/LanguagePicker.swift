@@ -13,18 +13,12 @@ struct LanguagePickerSection: View {
     let supportedLanguages = ["en", "ko", "fr"]
     
     var body: some View {
-       
-            Section(header: Text("Select Language")) {
-                Picker("Language", selection: $localizationManager.currentLanguage) {
-                    ForEach(supportedLanguages, id: \.self) { lang in
-                        Text(displayName(for: lang)).tag(lang)
-                    }
-                }
-                .pickerStyle(.menu)
-            }.environment(\.locale, localizationManager.locale)
-            
-        
-       
+        Picker(selection: $localizationManager.currentLanguage, label: Label("Language", systemImage: "network")) {
+            ForEach(supportedLanguages, id: \.self) { lang in
+                Text(displayName(for: lang)).tag(lang)
+            }
+        }
+        .pickerStyle(.menu)
     }
     
     private func displayName(for code: String) -> String {

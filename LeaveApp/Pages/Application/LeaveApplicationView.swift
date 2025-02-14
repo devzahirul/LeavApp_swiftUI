@@ -13,13 +13,13 @@ struct LeaveApplicationView: View {
     @State private var isImagePickerPresented    = false
     @State private var tempPickedImageURL: URL?  = nil
     
-    @EnvironmentObject var localizationManager: LocalizationManager
+    @Environment(\.locale) var local
     
     var body: some View {
         NavigationView {
             Form {
                 //--- Language section----
-                LanguagePickerSection()
+                //LanguagePickerSection()
                 
                 
                 // --- Personal Information ---
@@ -89,7 +89,11 @@ struct LeaveApplicationView: View {
                 }
             }
             .navigationTitle(Text(.leaveApplicationTitle))
-            
+            .toolbar(content: {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    LanguagePickerSection()
+                }
+            })
             // Document Picker
             .sheet(isPresented: $isDocumentPickerPresented) {
                 DocumentPickerView(pickedFileURLs: $viewModel.attachedFileURLs)
@@ -104,7 +108,7 @@ struct LeaveApplicationView: View {
                 viewModel.attachedFileURLs.append(newValue)
                 tempPickedImageURL = nil
             }
-        }.id(localizationManager.locale)
+        }.id(local)
     }
 }
 
