@@ -9,47 +9,47 @@ import SwiftUI
 struct LeaveApplicationView: View {
     @StateObject private var viewModel = LeaveApplicationViewModel()
     
-    // For presenting the document picker
     @State private var isDocumentPickerPresented = false
-    
-    // For presenting the image picker
-    @State private var isImagePickerPresented = false
-    
-    // Temporary storage for the new image URL from ImagePicker
-    @State private var tempPickedImageURL: URL? = nil
+    @State private var isImagePickerPresented    = false
+    @State private var tempPickedImageURL: URL?  = nil
     
     var body: some View {
         NavigationView {
             Form {
                 // --- Personal Information ---
-                Section(header: Text("Personal Information")) {
-                    TextField("Name", text: $viewModel.application.name)
+                Section(header: Text(.personalInformation)) {
+                    TextField(.namePlaceholder, text: $viewModel.application.name)
                         .textContentType(.name)
                     
-                    TextField("Email", text: $viewModel.application.email)
+                    TextField(.emailPlaceholder, text: $viewModel.application.email)
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
                 }
                 
                 // --- Leave Details ---
-                Section(header: Text("Leave Details")) {
-                    Picker("Leave Type", selection: $viewModel.application.leaveType) {
+                Section(header: Text(.leaveDetails)) {
+                    Picker(.init(.leaveDetails), selection: $viewModel.application.leaveType) {
                         ForEach(viewModel.leaveTypes, id: \.self) { type in
+                            // If these "type" strings also need localization,
+                            // either localize them similarly or handle them differently
                             Text(type)
                         }
                     }
                     
-                    DatePicker("Start Date", selection: $viewModel.application.startDate, displayedComponents: .date)
-                    DatePicker("End Date", selection: $viewModel.application.endDate, displayedComponents: .date)
+                    DatePicker(.init(.startDate),
+                               selection: $viewModel.application.startDate,
+                               displayedComponents: .date)
+                    DatePicker(.init(.endDate),
+                               selection: $viewModel.application.endDate,
+                               displayedComponents: .date)
                     
-                    TextField("Reason for Leave", text: $viewModel.application.reason)
+                    TextField(.reasonForLeave, text: $viewModel.application.reason)
                 }
                 
                 // --- Attachments ---
-                Section(header: Text("Attachments")) {
-                    // Show a list of current attachments
+                Section(header: Text(.attachments)) {
                     if viewModel.attachedFileURLs.isEmpty {
-                        Text("No attachments yet.")
+                        Text(.noAttachments)
                             .foregroundColor(.secondary)
                     } else {
                         ForEach(viewModel.attachedFileURLs, id: \.self) { fileURL in
@@ -58,13 +58,12 @@ struct LeaveApplicationView: View {
                         }
                     }
                     
-                    // Buttons to pick image or document
                     HStack {
-                        Button("Add Document") {
+                        Button(.addDocument) {
                             isDocumentPickerPresented = true
                         }
                         Spacer()
-                        Button("Add Image") {
+                        Button(.addImage) {
                             isImagePickerPresented = true
                         }
                     }
@@ -72,37 +71,37 @@ struct LeaveApplicationView: View {
                 
                 // --- Submission ---
                 Section {
-                    Button("Submit") {
+                    Button(.submitButton) {
                         viewModel.submitForm()
                     }
                     
                     if let message = viewModel.submissionMessage {
-                        Text(message)
+                        Text(message)  // Possibly localize or style further
                             .foregroundColor(message.contains("success") ? .green : .red)
                             .padding(.top, 4)
                     }
                 }
             }
-            .navigationTitle("Leave Application")
+            .navigationTitle(Text(.leaveApplicationTitle))
             
-            // Present the Document Picker
+            // Document Picker
             .sheet(isPresented: $isDocumentPickerPresented) {
                 DocumentPickerView(pickedFileURLs: $viewModel.attachedFileURLs)
             }
             
-            // Present the Image Picker
+            // Image Picker
             .sheet(isPresented: $isImagePickerPresented) {
                 ImagePickerView(pickedImageURL: $tempPickedImageURL)
             }
-            // Whenever tempPickedImageURL changes, add it to the ViewModel array
             .onChange(of: tempPickedImageURL) { newValue in
                 guard let newValue = newValue else { return }
                 viewModel.attachedFileURLs.append(newValue)
-                tempPickedImageURL = nil  // Reset the temp state
+                tempPickedImageURL = nil
             }
         }
     }
 }
+
 
 struct LeaveApplicationView_Previews: PreviewProvider {
     static var previews: some View {
