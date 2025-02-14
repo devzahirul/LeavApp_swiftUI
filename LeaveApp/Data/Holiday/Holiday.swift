@@ -1,13 +1,11 @@
 //
-//  HolidayList.swift
+//  Holiday.swift
 //  LeaveApp
 //
-//  Created by lynkto_1 on 2/13/25.
+//  Created by lynkto_1 on 2/14/25.
 //
 
-
-
-import SwiftUI
+import Foundation
 
 struct Holiday: Identifiable {
     let id = UUID()
@@ -40,49 +38,9 @@ extension Holiday {
     }
 }
 
-struct HolidayListView: View {
-    let holidays: [Holiday]
-    let calendar = Calendar.current
-    
-    var body: some View {
-        // Filter out holidays that are already past
-        let upcomingHolidays = holidays.filter { $0.daysRemaining() >= 0 }
-        
-        List(upcomingHolidays) { holiday in
-            HStack {
-                // Circular date display
-                ZStack {
-                    Circle()
-                        .fill(Color.blue)
-                        .frame(width: 50, height: 50)
-                    
-                    Text("\(calendar.component(.day, from: holiday.date))")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                }
-                .padding(.trailing, 8)
-                
-                // Holiday name and remaining days
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(holiday.name)
-                        .font(.headline)
-                    
-                    Text(holiday.remainingDaysText())
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-            }
-            .padding(.vertical, 4)
-        }
-        .navigationTitle("Holidays")
-    }
-}
-
-
-struct HolidayListMapper: View {
-    
+extension Holiday {
     // Helper to easily create a Date from components
-    private func dateFromComponents(year: Int, month: Int, day: Int) -> Date {
+    private static func dateFromComponents(year: Int, month: Int, day: Int) -> Date {
         var components = DateComponents()
         components.year = year
         components.month = month
@@ -90,8 +48,7 @@ struct HolidayListMapper: View {
         return Calendar.current.date(from: components) ?? Date()
     }
     
-    // Sample holiday data
-    private var sampleHolidays: [Holiday] {
+     static var sampleHolidays: [Holiday] {
         [
             Holiday(name: "New Year", date: dateFromComponents(year: 2025, month: 1, day: 1)),
             Holiday(name: "Valentine's Day", date: dateFromComponents(year: 2025, month: 2, day: 14)),
@@ -99,17 +56,5 @@ struct HolidayListMapper: View {
             Holiday(name: "Halloween", date: dateFromComponents(year: 2025, month: 10, day: 31)),
             Holiday(name: "Christmas", date: dateFromComponents(year: 2025, month: 12, day: 25))
         ]
-    }
-    
-    var body: some View {
-        NavigationView {
-            HolidayListView(holidays: sampleHolidays)
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        HolidayListMapper()
     }
 }

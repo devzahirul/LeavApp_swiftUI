@@ -28,6 +28,8 @@
 		0BC4B1D52D5E15CB00778A09 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC4B1D42D5E15CB00778A09 /* FirebaseInAppMessaging-Beta */; };
 		0BC4B1D72D5E15CB00778A09 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC4B1D62D5E15CB00778A09 /* FirebaseMessaging */; };
 		0BC4B1D92D5E15CB00778A09 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 0BC4B1D82D5E15CB00778A09 /* FirebaseRemoteConfig */; };
+		0BF8C5222D5ED5C700E80653 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8C5212D5ED5C700E80653 /* Holiday.swift */; };
+		0BF8C5252D5ED63800E80653 /* HolidayListContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8C5242D5ED63800E80653 /* HolidayListContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		0BC4B1C42D5E133800778A09 /* LeaveApplicationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveApplicationView.swift; sourceTree = "<group>"; };
 		0BC4B1C72D5E13D900778A09 /* BackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
 		0BC4B1CA2D5E141F00778A09 /* FirebaseBackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBackendService.swift; sourceTree = "<group>"; };
+		0BF8C5212D5ED5C700E80653 /* Holiday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holiday.swift; sourceTree = "<group>"; };
+		0BF8C5242D5ED63800E80653 /* HolidayListContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayListContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,9 +73,9 @@
 		0B4AE8342D5E19140054CB08 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				0BF8C5232D5ED60B00E80653 /* HolidayList */,
 				0B4AE8372D5E19930054CB08 /* Chart */,
 				0BC4B1C12D5E12E700778A09 /* Application */,
-				0B4AE8402D5E1EF40054CB08 /* HolidayList.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -126,6 +130,7 @@
 		0BC4B1BE2D5E129200778A09 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0BF8C5202D5ED5AD00E80653 /* Holiday */,
 				0BC4B1C92D5E13E700778A09 /* Backend */,
 				0BC4B1C62D5E13B600778A09 /* Leave */,
 			);
@@ -158,6 +163,23 @@
 				0BC4B1CA2D5E141F00778A09 /* FirebaseBackendService.swift */,
 			);
 			path = Backend;
+			sourceTree = "<group>";
+		};
+		0BF8C5202D5ED5AD00E80653 /* Holiday */ = {
+			isa = PBXGroup;
+			children = (
+				0BF8C5212D5ED5C700E80653 /* Holiday.swift */,
+			);
+			path = Holiday;
+			sourceTree = "<group>";
+		};
+		0BF8C5232D5ED60B00E80653 /* HolidayList */ = {
+			isa = PBXGroup;
+			children = (
+				0B4AE8402D5E1EF40054CB08 /* HolidayList.swift */,
+				0BF8C5242D5ED63800E80653 /* HolidayListContainer.swift */,
+			);
+			path = HolidayList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,10 +265,12 @@
 			files = (
 				0BC4B1B32D5E108500778A09 /* ContentView.swift in Sources */,
 				0B4AE8412D5E1EF40054CB08 /* HolidayList.swift in Sources */,
+				0BF8C5222D5ED5C700E80653 /* Holiday.swift in Sources */,
 				0B4AE83D2D5E1B870054CB08 /* DocumentPickerView.swift in Sources */,
 				0BC4B1C32D5E130700778A09 /* LeavApplicationViewModel.swift in Sources */,
 				0BC4B1B12D5E108500778A09 /* LeaveAppApp.swift in Sources */,
 				0B4AE83F2D5E1DBF0054CB08 /* ImagePickerView.swift in Sources */,
+				0BF8C5252D5ED63800E80653 /* HolidayListContainer.swift in Sources */,
 				0BC4B1C52D5E133800778A09 /* LeaveApplicationView.swift in Sources */,
 				0B4AE8392D5E19A30054CB08 /* UpcomingLeaveCircleChartView.swift in Sources */,
 				0BC4B1C82D5E13D900778A09 /* BackendService.swift in Sources */,
