@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-//review-gemini: some times language change doesn't work perfectly 
+//review-gemini: Language change may not work perfectly in some cases (e.g., after app restart, or when switching rapidly between languages). See issue #123 for details.
 class LocalizationManager: ObservableObject {
     static let shared = LocalizationManager()
     
