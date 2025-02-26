@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestore
 import Foundation
 
+//@gemini-code-assist: Please review this code
 class FirebaseBackendService: BackendService {
     
     private let db = Firestore.firestore()
