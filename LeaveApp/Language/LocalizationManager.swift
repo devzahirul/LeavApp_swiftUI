@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 
+//review-gemini: some times language change doesn't work perfectly 
 class LocalizationManager: ObservableObject {
     static let shared = LocalizationManager()
     
