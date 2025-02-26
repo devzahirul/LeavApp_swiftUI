@@ -1,8 +1,7 @@
 # Leave App in SwiftUI
 
 A simple iOS application built with **SwiftUI** that allows users to submit leave requests and view a list of upcoming holidays. The app leverages **Firebase** as its backend for data storage and authentication (optional).
--Push notification
--MyDay 
+
 A feature for help to summarize 
 
 ---
